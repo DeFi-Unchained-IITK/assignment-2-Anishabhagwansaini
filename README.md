@@ -1,26 +1,24 @@
 # Assignment-2
 
-## Question 1 :
+## Question 1 :![Screenshot (47)](https://github.com/DeFi-Unchained-IITK/assignment-2-Anishabhagwansaini/assets/169903363/b456ef3a-7ac5-4a35-8bb0-9a01fe1be194)
 
-Your task is to create a smart contract "PrimeOwner". You have to first declare a state variable owner. Now,  create two functions 
+I made a contract named primeowner. than declared a event which will get emited when owner is changed.by the help of constructor I gave the address type variable (owner), the address of the person who will deploy this contyract . than I made public function which will change the owner when input is prime.than I made a private funtion to check wether the number is prime or not. I have called this private function in the above public funtion.
 
-1. A public function which takes an uint input and changes the owner to the address that calls the function if the input is a Prime number. Revert the function call if input is less than 1.
-2. A private function which helps the above function in checking if the number is prime or not.
-
-Lastly, emit an event whenever the “owner” is changed.
 
 ## Question 2 :
+![Screenshot (48)](https://github.com/DeFi-Unchained-IITK/assignment-2-Anishabhagwansaini/assets/169903363/e319577e-7189-4876-a28a-b52b98555485)
+In a contract named Employee , I defined a struct which hold employee details including id, name, position, and salary. than I mapped this struct to the id(this is a numerical value ).than defined three events which will get emitted when an employee is added, an employee is updated, an employee is deleted respectivly. now using a constructor I initialized the id of first employee. now we have to create four funtion which are following
 
-Your task is to create a smart contract “EmployeeRegistree”. You have to define a struct “Employee” with properties : **uint ID, string name, string position, uint salary**.
-Now, create a mapping to store Employees by their ID and maintain a state variable to track the ID for the next employee to be added.
-Write four functions : 
-1. **AddEmployee** - takes the required Employee properties(name, position, salary) and adds the Employee to the mapping.
-2. **UpdateEmployee** - takes the input id, updated name, position and salary and updates the same in the mapping.
-3. **GetEmployeeDetails** - takes the input id and returns the Employee’s name, position and salary.
-4. **DeleteEmployee** - takes the input id and deletes the employee from the mapping.
 
-Revert back the function calls whenever the id doesn’t exist (in case of last 3 functions). \
-Emit separate events for the functions that adds or updates or deletes an employee. The event should contain all details of employee. In case of deletion, emit the details of the employee deleted.
+1 addEmployee: add name, position, and salary as inputs, creates a new Employee, and  maps it to the id. than we increase the id by 1 for the next employee
+
+2 updateEmployee: Takes id, name, position, and salary as inputs, updates the employee details, and emits EmployeeUpdated event.
+
+3 getEmployeeDetails: as we entre id of any employee in it , this function gives information about the name, position, and salary of the employee.
+
+
+4 deleteEmployee: if we give id to it , it will delete the respective employee from the mapping
+
 
 ## Question 3 :
 
