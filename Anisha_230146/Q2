@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract EmployeeRegistree {
+    struct Employee {
+        uint id;
+        string name;
+        string position;
+        uint salary;
+    }
+
+    mapping(uint => Employee) private roll_no;
+    uint private Id;
+
+    
+    event Add(uint id, string name, string position, uint salary);
+    event Update(uint id, string name, string position, uint salary);
+    event Delete(uint id, string name, string position, uint salary);
+
+    constructor() {
+       Id = 0; 
+    }
+
+    function addEmployee(string memory name, string memory position, uint salary) public {
+        roll_no[Id] = Employee(Id, name, position, salary);
+        emit Add(Id, name, position, salary);
+        Id++;
+    }
+       
+
+    
+    function updateEmployee(uint id, string memory name, string memory position, uint salary) public {
+        roll_no[id].name = name;
+        roll_no[id].position = position;
+        roll_no[id].salary = salary;
+        emit Update(id, name, position, salary);
+    }
+
+    function getEmployeeDetails(uint id) view  public returns (string memory name, string memory position, uint salary) {
+        Employee memory emp = roll_no[id];
+        return (emp.name, emp.position, emp.salary);
+    }
+     
+    function deleteEmployee(uint id) public {
+       Employee memory emp = roll_no[id];
+       emit Delete(emp.id, emp.name, emp.position, emp.salary);
+       delete roll_no[id];
+    }
+} 
